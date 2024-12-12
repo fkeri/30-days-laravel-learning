@@ -18,8 +18,14 @@
                                 class="flex items-center rounded-md bg-white pl-3 outline outline-1 -outline-offset-1 outline-gray-300 focus-within:outline focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-600">
                                 <input type="text" name="title" id="title"
                                     class="block min-w-0 grow py-1.5 pl-1 pr-3 text-base text-gray-900 placeholder:text-gray-400 focus:outline focus:outline-0 sm:text-sm/6"
-                                    placeholder="Teaching Assistant">
+                                    placeholder="Teaching Assistant" required>
                             </div>
+
+                            @error('title')
+                                <p class="text-xs text-red-500 font-semibold mt-1">
+                                    {{ $message }}
+                                </p>
+                            @enderror
                         </div>
                     </div>
 
@@ -30,11 +36,27 @@
                                 class="flex items-center rounded-md bg-white pl-3 outline outline-1 -outline-offset-1 outline-gray-300 focus-within:outline focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-600">
                                 <input type="text" name="salary" id="salary"
                                     class="block min-w-0 grow py-1.5 pl-1 pr-3 text-base text-gray-900 placeholder:text-gray-400 focus:outline focus:outline-0 sm:text-sm/6"
-                                    placeholder="$50,000 Per Year">
+                                    placeholder="$50,000 Per Year" required>
                             </div>
+
+                            @error('salary')
+                                <p class="text-xs text-red-500 font-semibold mt-1">
+                                    {{ $message }}
+                                </p>
+                            @enderror
                         </div>
                     </div>
                 </div>
+
+                {{-- <div class="mt-10">
+                    @if ($errors->any())
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li class="text-red-500">{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    @endif
+                </div> --}}
             </div>
         </div>
 
